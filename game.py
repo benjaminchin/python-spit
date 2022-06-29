@@ -37,7 +37,13 @@ def main():
         
         screen.fill(GREEN)
         canvas.fill(GREEN)
-        canvas.blit(deck[0].sprite, (WIDTH/2, HEIGHT/2))
+        
+        canvas.blit(deck[0].sprite, (0, HEIGHT/2 - CARD_HEIGHT/2))
+        canvas.blit(deck[1].sprite, (169, HEIGHT/2 - CARD_HEIGHT/2))
+        canvas.blit(deck[2].sprite, (375 - CARD_WIDTH/2, HEIGHT/2 - CARD_HEIGHT/2))
+        canvas.blit(deck[3].sprite, (450, HEIGHT/2 - CARD_HEIGHT/2))
+        canvas.blit(deck[4].sprite, (600, HEIGHT/2 - CARD_HEIGHT/2))
+
         screen.blit(canvas, (0, 0))
         pg.display.update()
 
