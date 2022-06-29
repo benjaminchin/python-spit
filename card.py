@@ -1,4 +1,5 @@
 from settings import *
+from spritesheet import *
 
 class Card:
 
@@ -14,3 +15,6 @@ class Card:
         suits = {'h' : CARD_HEIGHT * 2, 'd' : CARD_HEIGHT * 3, 's' : CARD_HEIGHT, 'c' : 0}
         self.y = suits[suit]
         self.x = (rank - 1) * CARD_WIDTH
+
+        spritesheet = Spritesheet(FILENAME)
+        self.sprite = spritesheet.get_sprite(self.x, self.y, CARD_WIDTH, CARD_HEIGHT)

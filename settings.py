@@ -1,3 +1,5 @@
+FILENAME = 'cards.png'
+
 TITLE = "Spit"
 WIDTH = 750
 HEIGHT = 750
