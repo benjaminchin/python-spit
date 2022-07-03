@@ -38,17 +38,17 @@ def main():
                 sys.exit()
             if event.type == pg.MOUSEBUTTONDOWN:
                 x, y = pg.mouse.get_pos()
-                """for card in deck[0:5]:
-                    if card.sprite.get_rect().collidepoint(x, y):
-                        print('collision!')"""
+                for card in deck[0:5]:
+                    print(card.image.rect.collidepoint(x, y))
                 print(x, y)
-                print(deck[0].sprite)
+                print(deck[0].rect)
         
         screen.fill(GREEN)
         canvas.fill(GREEN)
 
         for i in range(5):
-            canvas.blit(deck[i].sprite, ((i+1)*125 - CARD_WIDTH/2, HEIGHT/2 - CARD_HEIGHT/2))
+            left, top = (i+1)*125 - CARD_WIDTH/2, HEIGHT/2 - CARD_HEIGHT/2
+            canvas.blit(deck[i].image, (left, top))
 
         screen.blit(canvas, (0, 0))
         pg.display.update()

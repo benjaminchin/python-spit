@@ -1,9 +1,10 @@
 from settings import *
 from spritesheet import *
 
-class Card:
+class Card(pg.sprite.Sprite):
 
     def __init__(self, rank, suit):
+        super().__init__()
         self.rank = rank #  1-13
         self.suit = suit #  h, d, s, c 
         self.color = 'r'
@@ -17,4 +18,7 @@ class Card:
         self.x = (rank - 1) * CARD_WIDTH
 
         spritesheet = Spritesheet(FILENAME)
-        self.sprite = spritesheet.get_sprite(self.x, self.y, CARD_WIDTH, CARD_HEIGHT)
+        self.image = spritesheet.get_sprite(self.x, self.y, CARD_WIDTH, CARD_HEIGHT)
+
+        self.rect = self.image.get_rect()
+

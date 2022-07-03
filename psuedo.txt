@@ -1,0 +1,11 @@
+create 52 card deck
+    shuffle deck
+
+cut deck, give each player 26 cards
+    automatically deal player's first 5 cards down in a line in 5 piles.
+        stack more cards on each pile so first pile has 1 card, second has 2 cards, etc.
+            first card in each pile is face up - rest are face down
+            players keep remaining deck in "hand"
+                display decks at top and bottom of screen - face down
+
+
