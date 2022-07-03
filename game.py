@@ -11,6 +11,9 @@ def main():
     screen = pg.display.set_mode((WIDTH, HEIGHT))
     canvas = pg.Surface((WIDTH, HEIGHT))
 
+
+    #  x, y = pg.mouse.get_pos()
+
     all_sprites = pg.sprite.Group()
 
     screen.fill(BLACK)
@@ -27,8 +30,6 @@ def main():
         deck.append(Card(i+1, 'c'))
    
     random.shuffle(deck)
-    for card in deck:
-        all_sprites.add(card.sprite)
 
     while running:
         for event in pg.event.get():
@@ -37,20 +38,17 @@ def main():
                 pg.quit()
                 sys.exit()
             if event.type == pg.MOUSEBUTTONDOWN:
-                pass
+                x, y = pg.mouse.get_pos()
+                """for card in deck[0:5]:
+                    if card.sprite.get_rect().collidepoint(x, y):
+                        print('collision!')"""
+                print(x, y)
         
         screen.fill(GREEN)
         canvas.fill(GREEN)
-        
-        canvas.blit(deck[0].sprite, (125 - CARD_WIDTH/2, HEIGHT/2 - CARD_HEIGHT/2)) # slot 1-5
-        canvas.blit(deck[1].sprite, (250 - CARD_WIDTH/2, HEIGHT/2 - CARD_HEIGHT/2))
-        canvas.blit(deck[2].sprite, (375 - CARD_WIDTH/2, HEIGHT/2 - CARD_HEIGHT/2))
-        canvas.blit(deck[3].sprite, (500 - CARD_WIDTH/2, HEIGHT/2 - CARD_HEIGHT/2))
-        canvas.blit(deck[4].sprite, (625 - CARD_WIDTH/2, HEIGHT/2 - CARD_HEIGHT/2))
 
-        for card in deck[0:5]:
-            if card.sprite.get_rect().collidepoint(x, y):
-                print('collision!')
+        for i in range(5):
+            canvas.blit(deck[i].sprite, ((i+1)*125 - CARD_WIDTH/2, HEIGHT/2 - CARD_HEIGHT/2))
 
         screen.blit(canvas, (0, 0))
         pg.display.update()
