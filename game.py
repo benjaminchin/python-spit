@@ -11,7 +11,6 @@ def main():
     screen = pg.display.set_mode((WIDTH, HEIGHT))
     canvas = pg.Surface((WIDTH, HEIGHT))
 
-
     #  x, y = pg.mouse.get_pos()
 
     all_sprites = pg.sprite.Group()
@@ -43,6 +42,7 @@ def main():
                     if card.sprite.get_rect().collidepoint(x, y):
                         print('collision!')"""
                 print(x, y)
+                print(deck[0].sprite)
         
         screen.fill(GREEN)
         canvas.fill(GREEN)
